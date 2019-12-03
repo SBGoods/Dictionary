@@ -3,8 +3,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-    <data
-        />
+    <data>
+        <import type="android.view.View" />
+        <import type="android.widget.EditText" />
+        <variable name="search" type="String" />
+        <variable
+            name="viewmodel"
+            type="com.goods.android.dictionary.ui.main.MainViewModel" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main"
@@ -28,13 +34,15 @@
 
         <Button
             android:id="@+id/search_button"
+            android:text="@{search}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="@string/search_button"
+            tools:text="@{search}"
             app:layout_constraintTop_toBottomOf="@id/search_bar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:onClick="@{() -> viewmodel.fetchDefinitions(search_bar.getText().toString())}"
             />
 
 
