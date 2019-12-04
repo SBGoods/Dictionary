@@ -21,6 +21,7 @@
 
         <EditText
             android:id="@+id/search_bar"
+            android:text="@={viewmodel.searchQuery}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
@@ -42,7 +43,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:onClick="@{() -> viewmodel.fetchDefinitions(search_bar.getText().toString())}"
+            android:onClick="@{(view) -> viewmodel.searchButtonClick(view)}"
             />
 
 

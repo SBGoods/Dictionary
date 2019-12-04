@@ -26,9 +26,7 @@ class DictionaryFetcher {
     }
 
     fun fetchContents(searchQuery : String) : LiveData<DictionaryEntry> {
-
         val responseLiveDictionaryEntry : MutableLiveData<DictionaryEntry> = MutableLiveData()
-
         val DictionaryEntryRequest: Call<DictionaryEntry> = api.getDefinition(searchQuery)
 
         DictionaryEntryRequest.enqueue(object : Callback<DictionaryEntry> {

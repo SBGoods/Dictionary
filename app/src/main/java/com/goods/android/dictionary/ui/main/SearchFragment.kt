@@ -7,7 +7,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
+import androidx.databinding.adapters.TextViewBindingAdapter
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import com.goods.android.dictionary.api.Api
@@ -44,7 +46,8 @@ class SearchFragment : Fragment() {
     ): View {
 
         val binding = DataBindingUtil.inflate<SearchFragmentBinding>(inflater, R.layout.search_fragment, container, false)
-
+        binding.viewmodel = viewModel
+        //TextViewBindingAdapter.AfterTextChanged {  }
         binding.search = resources.getString(R.string.search_button)
 //        binding.searchButton.setOnClickListener {  View.OnClickListener{
 //                it ->
