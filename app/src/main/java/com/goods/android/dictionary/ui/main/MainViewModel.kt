@@ -6,6 +6,9 @@ import android.widget.Button
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import com.goods.android.dictionary.R
 import com.goods.android.dictionary.api.DictionaryFetcher
 import com.goods.android.dictionary.model.DictionaryEntry
 
@@ -22,8 +25,9 @@ class MainViewModel : ViewModel() {
 
     @BindingAdapter("android:onClick")
     fun searchButtonClick(view : View){
-        view.setOnClickListener { it ->
+        view.setOnClickListener {
             fetchDefinitions(searchQuery)
+            view.findNavController().navigate(R.id.action_searchFragment_to_entryFragment)
             Log.d(TAG, "button pressed")
         }
 

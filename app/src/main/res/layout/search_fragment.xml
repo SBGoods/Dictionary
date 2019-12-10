@@ -43,7 +43,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:onClick="@{(view) -> viewmodel.searchButtonClick(view)}"
+            android:onClick="@{viewmodel::searchButtonClick}"
             />
 
 
