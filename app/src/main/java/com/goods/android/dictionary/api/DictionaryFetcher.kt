@@ -25,7 +25,7 @@ class DictionaryFetcher {
         api = retrofit.create(Api::class.java)
     }
 
-    fun fetchContents(searchQuery : String) : LiveData<DictionaryEntry> {
+    fun fetchContents(searchQuery : String) : MutableLiveData<DictionaryEntry> { //returns a mustable live data object that is "filled in later"
         val responseLiveDictionaryEntry : MutableLiveData<DictionaryEntry> = MutableLiveData()
         val DictionaryEntryRequest: Call<DictionaryEntry> = api.getDefinition(searchQuery)
 
@@ -39,11 +39,12 @@ class DictionaryFetcher {
                 response: Response<DictionaryEntry>
             ) {
                 Log.e(TAG, "Response Received")
-                val dictionaryEntry: DictionaryEntry? = response.body()
-                responseLiveDictionaryEntry.value = dictionaryEntry
-                System.out.println(dictionaryEntry?.toString())
+                var dictionaryEntry = response.body()
+                responseLiveDictionaryEntry.postValue(dictionaryEntry)
+
             }
         })
+
         return responseLiveDictionaryEntry
     }
 }

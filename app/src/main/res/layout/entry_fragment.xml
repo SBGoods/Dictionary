@@ -6,6 +6,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <variable
+            name="viewmodel"
+            type="com.goods.android.dictionary.ui.main.MainViewModel" />
+
 
     </data>
 
@@ -22,7 +26,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:text="example"
+            android:text="@{viewmodel.mediatorLiveData.word}"
             tools:text="Example" />
 
 
@@ -35,7 +39,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView"
-            tools:text="This is a sample definition" />
+            android:text="@{viewmodel.mediatorLiveData.definitions[0].definition}" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
