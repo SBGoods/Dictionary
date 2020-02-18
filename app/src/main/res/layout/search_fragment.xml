@@ -9,7 +9,7 @@
         <variable name="search" type="String" />
         <variable
             name="viewmodel"
-            type="com.goods.android.dictionary.ui.main.MainViewModel" />
+            type="com.goods.android.dictionary.viewmodel.MainViewModel" />
 
 
     </data>
@@ -18,7 +18,7 @@
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.main.SearchFragment">
+        tools:context=".view.SearchFragment">
 
 
         <EditText

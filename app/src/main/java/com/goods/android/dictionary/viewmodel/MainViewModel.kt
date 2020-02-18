@@ -1,24 +1,18 @@
-package com.goods.android.dictionary.ui.main
+package com.goods.android.dictionary.viewmodel
 
-import android.util.Log
 import android.view.View
-import android.widget.Button
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.*
-import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import com.goods.android.dictionary.R
 import com.goods.android.dictionary.api.DictionaryFetcher
-import com.goods.android.dictionary.model.Definition
 import com.goods.android.dictionary.model.DictionaryEntry
 
 private const val TAG = "MainViewModel"
 
 class MainViewModel : ViewModel() {
-    var counter = 0
     var mediatorLiveData : MediatorLiveData<DictionaryEntry> = MediatorLiveData()
-    var dictionaryEntryLiveData : MutableLiveData<DictionaryEntry> = MutableLiveData(DictionaryEntry(
-        listOf(Definition("def", "part")), "example"))
+    var dictionaryEntryLiveData : MutableLiveData<DictionaryEntry> = MutableLiveData()
     var searchQuery = ""
 
 

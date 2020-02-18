@@ -1,26 +1,21 @@
-package com.goods.android.dictionary.ui.main
+package com.goods.android.dictionary.view
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.MediatorLiveData
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.goods.android.dictionary.MainActivity
 import com.goods.android.dictionary.R
 import com.goods.android.dictionary.databinding.EntryFragmentBinding
-import com.goods.android.dictionary.model.DictionaryEntry
+import com.goods.android.dictionary.viewmodel.MainViewModel
 import java.lang.Exception
 
 private const val TAG = "EntryFragment"
 
 class EntryFragment : Fragment(){
-
 
     private lateinit var viewModel: MainViewModel
 

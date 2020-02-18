@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.goods.android.dictionary.ui.main.SearchFragment"
+        android:name="com.goods.android.dictionary.view.SearchFragment"
         android:label="SearchFragment"
         tools:layout="@layout/search_fragment"
         >
@@ -21,6 +21,6 @@
     </fragment>
     <fragment
         android:id="@+id/entryFragment"
-        android:name="com.goods.android.dictionary.ui.main.EntryFragment"
+        android:name="com.goods.android.dictionary.view.EntryFragment"
         android:label="EntryFragment" />
 </navigation>
