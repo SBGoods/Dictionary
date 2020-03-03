@@ -30,8 +30,6 @@ class EntryFragment : Fragment(){
             val binding : EntryFragmentBinding = DataBindingUtil.inflate(inflater, R.layout.entry_fragment, container,false)
             binding.viewmodel = viewModel
             binding.lifecycleOwner = this
-
-            viewModel.setUpMediator()
             return binding.root
         }
     }

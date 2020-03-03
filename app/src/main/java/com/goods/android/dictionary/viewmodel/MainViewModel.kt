@@ -11,24 +11,15 @@ import com.goods.android.dictionary.model.DictionaryEntry
 private const val TAG = "MainViewModel"
 
 class MainViewModel : ViewModel() {
-    var mediatorLiveData : MediatorLiveData<DictionaryEntry> = MediatorLiveData()
     var dictionaryEntryLiveData : MutableLiveData<DictionaryEntry> = MutableLiveData()
     var searchQuery = ""
 
 
-    fun fetchDefinitions(input : String){
+    private fun fetchDefinitions(input : String){
         dictionaryEntryLiveData = DictionaryFetcher().fetchContents(input)
-
     }
 
-    fun setUpMediator(){
-        mediatorLiveData.addSource(dictionaryEntryLiveData)
-        {
-            mediatorLiveData.value = it
-        }
-    }
 
-    @BindingAdapter("android:onClick")
     fun searchButtonClick(view : View){
         view.setOnClickListener {
             fetchDefinitions(searchQuery)

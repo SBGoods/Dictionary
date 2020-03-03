@@ -9,8 +9,6 @@
         <variable
             name="viewmodel"
             type="com.goods.android.dictionary.viewmodel.MainViewModel" />
-
-
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,12 +19,12 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="35dp"
+            android:text="@{viewmodel.dictionaryEntryLiveData.word}"
+            android:textSize="35sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:text="@{viewmodel.mediatorLiveData.word}"
             tools:text="Example" />
 
 
@@ -34,8 +32,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@{viewmodel.mediatorLiveData.definitions[0].definition}"
-            android:textSize="35dp"
+            android:text="@{viewmodel.dictionaryEntryLiveData.definitions[0].definition}"
+            android:textSize="35sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

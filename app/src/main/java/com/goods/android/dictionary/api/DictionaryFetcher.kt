@@ -27,9 +27,9 @@ class DictionaryFetcher {
 
     fun fetchContents(searchQuery : String) : MutableLiveData<DictionaryEntry> { //returns a mutable live data object that is "filled in later"
         val responseLiveDictionaryEntry : MutableLiveData<DictionaryEntry> = MutableLiveData()
-        val DictionaryEntryRequest: Call<DictionaryEntry> = api.getDefinition(searchQuery)
+        val dictionaryEntryRequest: Call<DictionaryEntry> = api.getDefinition(searchQuery)
 
-        DictionaryEntryRequest.enqueue(object : Callback<DictionaryEntry> {
+        dictionaryEntryRequest.enqueue(object : Callback<DictionaryEntry> {
             override fun onFailure(call: Call<DictionaryEntry>, t: Throwable) {
                 Log.e(TAG, "Failed to fetch data", t)
             }
