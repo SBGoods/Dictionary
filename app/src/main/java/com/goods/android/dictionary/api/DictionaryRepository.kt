@@ -1,7 +1,6 @@
 package com.goods.android.dictionary.api
 
 import android.util.Log
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.goods.android.dictionary.model.DictionaryEntry
 import retrofit2.Call
@@ -12,8 +11,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 private const val TAG = "DictionaryFetcher"
 
-class DictionaryFetcher {
-    private val api : Api
+class DictionaryRepository {
+    private val api : API
 
     init {
         val retrofit: Retrofit = Retrofit.Builder()
@@ -21,8 +20,7 @@ class DictionaryFetcher {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
-
-        api = retrofit.create(Api::class.java)
+        api = retrofit.create(API::class.java)
     }
 
     fun fetchContents(searchQuery : String) : MutableLiveData<DictionaryEntry> { //returns a mutable live data object that is "filled in later"

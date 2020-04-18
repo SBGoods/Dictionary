@@ -2,11 +2,13 @@ package com.goods.android.dictionary.view
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import com.goods.android.dictionary.R
 import com.goods.android.dictionary.databinding.SearchFragmentBinding
 import com.goods.android.dictionary.viewmodel.MainViewModel
@@ -30,9 +32,16 @@ class SearchFragment : Fragment() {
         binding.viewmodel = viewModel
         binding.search = resources.getString(R.string.search_button)
         binding.lifecycleOwner = this
+        binding.searchfragment = this
 
         return binding.root
     }
 
+    fun searchButtonClick(view : View) {
+        view.setOnClickListener {
+            viewModel.fetchDefinitions()
+            view.findNavController().navigate(R.id.action_searchFragment_to_entryFragment)
+        }
+    }
 
 }

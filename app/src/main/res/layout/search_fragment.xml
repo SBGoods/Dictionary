@@ -6,6 +6,9 @@
     <data>
         <variable name="search" type="String" />
         <variable
+            name="searchfragment"
+            type="com.goods.android.dictionary.view.SearchFragment" />
+        <variable
             name="viewmodel"
             type="com.goods.android.dictionary.viewmodel.MainViewModel" />
     </data>
@@ -17,7 +20,7 @@
         tools:context=".view.SearchFragment">
 
 
-        <EditText
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/search_bar"
             android:text="@={viewmodel.searchQuery}"
             android:layout_width="match_parent"
@@ -30,7 +33,7 @@
             app:layout_constraintTop_toTopOf="parent"
             />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/search_button"
             android:text="@{search}"
             android:layout_width="wrap_content"
@@ -41,7 +44,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:onClick="@{viewmodel::searchButtonClick}"
+            android:onClick="@{(view) -> searchfragment.searchButtonClick(view)}"
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
